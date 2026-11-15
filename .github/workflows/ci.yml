@@ -1,0 +1,40 @@
+name: CI
+
+# Every push and pull request: the generated code and the Postman collection match the committed
+# OpenAPI snapshot, and everything type-checks, passes its unit tests and builds. The end-to-end
+# suites need a Pyas API and keys (README, "Developing"), so they are not run here.
+on:
+  push:
+    branches: [master, devkit-v2, 'v2/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Type check, unit tests and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: The generated code matches the committed snapshot
+        working-directory: packages/sdk
+        run: npm run generate && git diff --exit-code -- src/generated
+      - name: The Postman collection matches the committed snapshot
+        run: npm run generate -w @pyas/postman && git diff --exit-code -- packages/postman/pyas-api-v2.postman_collection.json
+      # Built first: the MCP server is typed against the SDK's build.
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npm test
+

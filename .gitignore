@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.env
+*.log
+packages/cli/templates/
+.next/
+.nuxt/
+.output/
+next-env.d.ts
+templates/.connect-packages/
+evals/results/
+.state.json
+packages/mcp/e2e/.recipes-work/

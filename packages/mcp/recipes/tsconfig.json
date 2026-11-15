@@ -1,0 +1,27 @@
+{
+    "extends": "../../../tsconfig.base.json",
+    "compilerOptions": {
+        "declaration": false,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "nextjs/*"
+            ],
+            "npm:@pyas/sdk@^1.0.0": [
+                "../../sdk/src/index.ts"
+            ]
+        },
+        "allowImportingTsExtensions": true
+    },
+    "include": [
+        "express/server/**/*.ts",
+        "nextjs/lib/**/*.ts",
+        "nextjs/app/**/*.ts",
+        "supabase/supabase/functions/**/*.ts",
+        "tanstack/src/lib/**/*.ts",
+        "tanstack/src/routes/**/*.ts",
+        "base44/base44/functions/**/*.ts",
+        "../test/types/recipes-deno.d.ts",
+        "../test/types/recipes-platforms.d.ts"
+    ]
+}

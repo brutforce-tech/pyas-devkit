@@ -1,0 +1,40 @@
+{
+  "name": "@pyas/cli",
+  "version": "1.0.0",
+  "description": "The Pyas CLI: Google, Outlook and Zoom calendars from your terminal, for developers and their coding agents. Every command takes --json.",
+  "keywords": [
+    "pyas",
+    "cli",
+    "calendar",
+    "calendar-api",
+    "google-calendar",
+    "outlook-calendar",
+    "webhooks"
+  ],
+  "homepage": "https://developer.pyas.io",
+  "license": "MIT",
+  "author": "Pyas Team <support@pyas.io>",
+  "type": "module",
+  "bin": {
+    "pyas": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup && node scripts/copy-templates.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --passWithNoTests",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts"
+  },
+  "dependencies": {
+    "@pyas/sdk": "1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "pyas-devkit",
+  "private": true,
+  "description": "Pyas's developer kit: the SDK, the CLI, the MCP server, tools for AI frameworks, starter templates, the Claude Code skill and the Postman collection.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @pyas/sdk && npm run build -w @pyas/ai-tools && npm run build -w @pyas/mcp && npm run build -w @pyas/cli",
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "npm run typecheck -w @pyas/sdk && npm run typecheck -w @pyas/ai-tools && npm run typecheck -w @pyas/mcp && npm run typecheck -w @pyas/cli && npm run typecheck -w @pyas/postman && tsc --noEmit -p evals/tsconfig.json && tsc --noEmit -p templates/tsconfig.json",
+    "test:templates": "vitest run --config templates/vitest.config.mts",
+    "test:evals": "vitest run --config evals/vitest.config.mts",
+    "evals": "tsx evals/run.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "openapi-typescript": "7.13.0",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.3",
+    "tsx": "^4.20.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

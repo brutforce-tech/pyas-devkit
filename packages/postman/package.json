@@ -1,0 +1,15 @@
+{
+  "name": "@pyas/postman",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Pyas API v2 Postman collection: generated from the API's OpenAPI document, run against the API, published to Pyas's public Postman workspace.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "generate": "tsx src/generate.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "publish:postman": "tsx src/publish.ts"
+  }
+}

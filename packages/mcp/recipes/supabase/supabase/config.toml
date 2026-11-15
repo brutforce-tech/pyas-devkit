@@ -1,0 +1,3 @@
+# Pyas calls the webhook function without a Supabase sign-in; the function checks Pyas's signature instead.
+[functions.pyas-webhooks]
+verify_jwt = false

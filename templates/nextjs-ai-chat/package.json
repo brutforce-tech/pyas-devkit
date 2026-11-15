@@ -1,0 +1,29 @@
+{
+  "name": "pyas-nextjs-ai-chat",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.111",
+    "@ai-sdk/react": "^4.0.170",
+    "@pyas/ai-tools": "^1.0.0",
+    "@pyas/connect-react": "^2.0.0",
+    "@pyas/sdk": "^1.0.0",
+    "ai": "^7.0.166",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

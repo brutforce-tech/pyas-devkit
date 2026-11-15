@@ -1,0 +1,53 @@
+{
+  "name": "@pyas/sdk",
+  "version": "1.0.0",
+  "description": "The Pyas API v2 for Node.js and TypeScript: Google, Outlook and Zoom calendars through one API, typed end to end.",
+  "keywords": [
+    "pyas",
+    "calendar",
+    "calendar-api",
+    "google-calendar",
+    "outlook-calendar",
+    "microsoft-graph",
+    "zoom",
+    "scheduling",
+    "sdk"
+  ],
+  "homepage": "https://developer.pyas.io",
+  "license": "MIT",
+  "author": "Pyas Team <support@pyas.io>",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "openapi:pull": "node scripts/pull-openapi.mjs",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

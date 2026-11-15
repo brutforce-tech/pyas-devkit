@@ -1,0 +1,24 @@
+<!-- A "Connect an account" button: Google or Outlook, through Pyas. Put it on any page your server sends. -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@pyas/connect@2/dist/pyas-connect/pyas-connect.esm.js"></script>
+
+<pyas-connect theme="auto"></pyas-connect>
+<p id="pyas-status" role="status"></p>
+
+<script type="module">
+    const element = document.querySelector('pyas-connect')
+    const status = document.getElementById('pyas-status')
+
+    // A new session for every attempt: a session works once and expires after 10 minutes.
+    element.getSessionToken = async () => {
+        const res = await fetch('/api/pyas/connect-session', { method: 'POST' })
+        const body = await res.json()
+        if (!res.ok) {
+            // Pyas's error says what went wrong, and its hint what to do.
+            status.textContent = `${body.error.message}${body.error.hint ? ` ${body.error.hint}` : ''}`
+            throw new Error(body.error.message)
+        }
+        return body.token
+    }
+    element.addEventListener('connected', (event) => { status.textContent = `Connected ${event.detail.email}` })
+    element.addEventListener('error', (event) => { status.textContent = event.detail.message })
+</script>

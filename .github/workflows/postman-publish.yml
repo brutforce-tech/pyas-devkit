@@ -1,0 +1,29 @@
+name: Publish the Postman collection
+
+# Updates "Pyas API v2" in the public brutforce-tech/pyas-api Postman workspace from the committed
+# collection, at an API release. Without the POSTMAN_API_KEY secret it publishes nothing and says so.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish to Postman
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: The collection matches the committed snapshot
+        run: npm run generate -w @pyas/postman && git diff --exit-code -- packages/postman/pyas-api-v2.postman_collection.json
+      - name: Publish
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+          POSTMAN_WORKSPACE_ID: ${{ vars.POSTMAN_WORKSPACE_ID }}
+        run: npm run publish:postman -w @pyas/postman

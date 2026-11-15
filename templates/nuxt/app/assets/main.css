@@ -1,0 +1,23 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0 auto;
+  max-width: 44rem;
+  padding: 1.5rem 1rem;
+  line-height: 1.5;
+  color: #1f2937;
+}
+
+nav a {
+  margin-right: 1rem;
+}
+
+.events time {
+  display: inline-block;
+  min-width: 18rem;
+  color: #4b5563;
+}
+
+button {
+  font: inherit;
+  padding: 0.4rem 0.9rem;
+}
