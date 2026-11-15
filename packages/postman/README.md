@@ -3,9 +3,9 @@
 This package holds the Postman collection for the [Pyas](https://pyas.io) API
 v2, [`pyas-api-v2.postman_collection.json`](pyas-api-v2.postman_collection.json)
 (collection format v2.1). The collection is generated from the API's OpenAPI
-document and tested against the API. It's published to Pyas's public Postman
-workspace, [brutforce-tech/pyas-api](https://www.postman.com/brutforce-tech/pyas-api),
-next to v1's collection. Don't edit the file by hand. Regenerate it instead.
+document and tested against the API. It's published as
+[Pyas API v2](https://www.postman.com/brutforce-tech/pyas-api/collection/cxwhgy1/pyas-api-v2)
+in Pyas's public Postman workspace, next to v1's collection. Don't edit the file by hand. Regenerate it instead.
 
 ## What it holds
 
