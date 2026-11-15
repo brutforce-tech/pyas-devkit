@@ -85,11 +85,13 @@ suite runs `postman` from the `PATH`, or the file in `POSTMAN_CLI`.
 
 ## Publishing
 
-`npm run publish:postman` updates "Pyas API v2" in the `pyas-api` workspace
-through the Postman API, or creates it there the first time. It requires
-`POSTMAN_API_KEY`, an API key of the brutforce-tech Postman team. Without that
-key, it prints a message and does nothing. If the workspace isn't named
-`pyas-api`, set `POSTMAN_WORKSPACE_ID`. The "Publish the Postman collection"
+`npm run publish:postman` updates "Pyas API v2" in the "Pyas API" workspace
+(postman.com/brutforce-tech/pyas-api) through the Postman API, or creates it
+there the first time. It requires `POSTMAN_API_KEY`, an API key of the
+brutforce-tech Postman team. Without that key, it prints a message and does
+nothing. If the workspace isn't named "Pyas API", set `POSTMAN_WORKSPACE_ID`.
+Postman's API doesn't accept the `secret` type of the `apiKey` variable, so the
+published copy sends it as `string`; the file keeps `secret`. The "Publish the Postman collection"
 workflow runs the command from GitHub Actions with the `POSTMAN_API_KEY`
 secret.
 

@@ -6,7 +6,7 @@
  *   POSTMAN_API_KEY=PMAK-... npm run publish:postman -w @pyas/postman
  *
  * Without POSTMAN_API_KEY it does nothing and says so. POSTMAN_WORKSPACE_ID picks the workspace
- * when its name is not "pyas-api".
+ * when its name is not "Pyas API" (its address is postman.com/brutforce-tech/pyas-api).
  */
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -14,7 +14,8 @@ import { fileURLToPath } from 'node:url'
 import { COLLECTION_NAME } from './collection'
 
 const API = 'https://api.getpostman.com'
-const WORKSPACE_NAME = 'pyas-api'
+/** The workspace's name, lowercased; its address says pyas-api. */
+const WORKSPACE_NAME = 'pyas api'
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'pyas-api-v2.postman_collection.json')
 
 const key = process.env.POSTMAN_API_KEY
@@ -44,7 +45,13 @@ const workspaceId = async (): Promise<string> => {
     return found[0].id
 }
 
-const collection = JSON.parse(readFileSync(FILE, 'utf8'))
+// Postman's API takes only string, boolean, number and any as a collection variable's type, and
+// refuses the file's "secret" (the API key). The file keeps it for people who import it.
+const file = JSON.parse(readFileSync(FILE, 'utf8'))
+const collection = {
+    ...file,
+    variable: (file.variable ?? []).map((variable: any) => (variable.type === 'secret' ? { ...variable, type: 'string' } : variable)),
+}
 const id = await workspaceId()
 const { workspace } = await postman('GET', `/workspaces/${id}`)
 const existing = (workspace.collections ?? []).find((c: any) => c.name === COLLECTION_NAME)
