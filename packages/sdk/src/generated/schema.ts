@@ -755,7 +755,7 @@ export type paths = {
         head?: never;
         /**
          * Update an event
-         * @description Updates the event. Send only the fields to update. Setting a nullable field to `null` clears it. To update the event only if it hasn't changed since you read it, send its `version` in the `If-Match` header. The v1 request body is also accepted.
+         * @description Updates the event. Send only the fields to update. Setting a nullable field to `null` clears it. To change the time, send `startsAt` and `endsAt` together. To update the event only if it hasn't changed since you read it, send its `version` in the `If-Match` header. The v1 request body is also accepted.
          */
         patch: operations["events.update"];
         trace?: never;
@@ -2348,7 +2348,7 @@ export type components = {
             visibility?: "default" | "public" | "private" | "confidential";
             workingLocation?: components["schemas"]["WorkingLocation"];
         };
-        /** @description Only the fields to update. Setting a nullable field to `null` clears it. */
+        /** @description Only the fields to update. Setting a nullable field to `null` clears it. To change the time, send `startsAt` and `endsAt` together. */
         EventPatch: {
             /** @description The `accountId` of the connected account. You can send it here or in the query. */
             accountId?: string;
