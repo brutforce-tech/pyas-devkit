@@ -1,6 +1,6 @@
 {
   "name": "@pyas/mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pyas's MCP server: calendars for AI agents (Google, Outlook and Zoom through one API), and the Pyas API's reference, errors and request logs for coding agents.",
   "keywords": [
     "pyas",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.1",
-    "@pyas/ai-tools": "1.0.0",
+    "@pyas/ai-tools": "1.0.1",
     "@pyas/sdk": "1.0.0",
     "zod": "^3.25.76"
   },

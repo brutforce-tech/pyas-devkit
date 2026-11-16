@@ -20,7 +20,7 @@ import { setupToolsFor, type SetupAccess } from './setupTools'
 
 export { brief, condensedReference }
 
-export const SERVER_VERSION = '1.0.0'
+export const SERVER_VERSION = '1.0.1'
 
 export interface PyasMcpOptions {
     pyas: Pyas

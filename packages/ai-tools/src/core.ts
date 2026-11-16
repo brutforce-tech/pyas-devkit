@@ -9,7 +9,7 @@
 import { Pyas, PyasError } from '@pyas/sdk'
 
 /** Names the AI tools in each request's User-Agent, so Pyas can count requests that come from AI agents. */
-const APP_INFO = 'pyas-ai-tools/1.0.0'
+const APP_INFO = 'pyas-ai-tools/1.0.1'
 import { z } from 'zod/v4'
 import { PYAS_TOOLS, RESOURCES, type PyasChangeAccount, type PyasChangeDetails, type PyasToolDefinition, type ToolContext, type ToolHints, type ToolResource } from './tools'
 
