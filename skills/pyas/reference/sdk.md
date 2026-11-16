@@ -53,6 +53,9 @@ conferencing: { provider: 'zoom', accountId: zoomAccountId }
 // Only if nobody changed it since you read it.
 await pyas.events.update({ accountId, eventId, title: 'Intro call (moved)' }, { ifMatch: event.version })
 
+// A new time: startsAt and endsAt together, or the update is refused.
+await pyas.events.update({ accountId, eventId, startsAt: '2026-10-22T16:00:00Z', endsAt: '2026-10-22T16:30:00Z' })
+
 await pyas.events.delete({ accountId, eventId })
 ```
 

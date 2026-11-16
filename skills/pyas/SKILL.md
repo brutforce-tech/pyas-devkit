@@ -183,6 +183,10 @@ Next.js, Nuxt and Node's `http` module.
   A conflict returns `RESOURCE_CONFLICT`. Read the event again and decide what
   to do.
 
+- To change an event's time, send `startsAt` and `endsAt` together, even if
+  one of them stays the same. One without the other is refused with
+  `VALIDATION_INVALID_BODY`.
+
 ## 7. Handle errors by code, and keep the trace ID
 
 Every failure is a `PyasError`. Its subclasses are `ValidationError`,
