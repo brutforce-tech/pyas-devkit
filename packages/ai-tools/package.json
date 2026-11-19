@@ -1,6 +1,6 @@
 {
   "name": "@pyas/ai-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pyas's calendar tools for AI agents: Google, Outlook and Zoom calendars as tools for the Vercel AI SDK, LangChain and LangGraph, OpenAI function calling and Anthropic tool use.",
   "keywords": [
     "pyas",

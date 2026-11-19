@@ -716,7 +716,7 @@ export interface Resources {
         /**
          * Update an event
          *
-         * Updates the event. Send only the fields to update. Setting a nullable field to `null` clears it. To update the event only if it hasn't changed since you read it, send its `version` in the `If-Match` header. The v1 request body is also accepted.
+         * Updates the event. Send only the fields to update. Setting a nullable field to `null` clears it. To change the time, send `startsAt` and `endsAt` together. To update the event only if it hasn't changed since you read it, send its `version` in the `If-Match` header. The v1 request body is also accepted.
          *
          * `PATCH /v2/events/{eventId}` (`events.update`)
          *
