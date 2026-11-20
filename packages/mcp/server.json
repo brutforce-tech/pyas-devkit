@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.pyas/mcp",
+  "title": "Pyas",
+  "description": "Read and change Google Calendar and Outlook events, find free time and add meeting links.",
+  "version": "1.0.2",
+  "websiteUrl": "https://www.pyas.io/agents",
+  "repository": {
+    "url": "https://github.com/brutforce-tech/pyas-devkit",
+    "source": "github",
+    "subfolder": "packages/mcp"
+  },
+  "icons": [
+    {
+      "src": "https://www.pyas.io/brand/pyas-mark.svg",
+      "mimeType": "image/svg+xml"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.pyas.io/sandbox"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.pyas.io"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@pyas/mcp",
+      "version": "1.0.2",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "PYAS_API_KEY",
+          "description": "A Pyas API key. A test key (pyas_sk_test_...) reaches only your app's sandbox.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
