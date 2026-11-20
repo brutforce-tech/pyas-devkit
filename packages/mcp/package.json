@@ -1,6 +1,7 @@
 {
   "name": "@pyas/mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "mcpName": "io.pyas/mcp",
   "description": "Pyas's MCP server: calendars for AI agents (Google, Outlook and Zoom through one API), and the Pyas API's reference, errors and request logs for coding agents.",
   "keywords": [
     "pyas",
@@ -12,6 +13,11 @@
     "outlook-calendar"
   ],
   "homepage": "https://developer.pyas.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brutforce-tech/pyas-devkit.git",
+    "directory": "packages/mcp"
+  },
   "license": "MIT",
   "author": "Pyas Team <support@pyas.io>",
   "type": "module",
